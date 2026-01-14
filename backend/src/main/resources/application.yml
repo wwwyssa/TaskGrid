@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: TaskGrid Backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/taskgrid_db
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: false
+  jackson:
+    default-property-inclusion: non_null
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+jwt:
+  secret: your-secret-key-change-in-production-very-long-secret-key-for-security
+  expiration: 86400000
+
+logging:
+  level:
+    root: INFO
+    com.taskgrid: DEBUG
